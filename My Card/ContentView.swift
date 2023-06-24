@@ -9,13 +9,37 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            Color("background")
+                .ignoresSafeArea(.all)
+            VStack {
+                
+                Image("portrait")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 180, height: 180, alignment: .top)
+                    .aspectRatio(contentMode: .fit)
+                    .clipShape(Circle())
+                    .overlay(.white, in: Circle().stroke(lineWidth: 6))
+                
+                Text("Phan Trung Tin")
+                    .fontWeight(.medium)
+                    .foregroundColor(Color.white)
+                    .font(.custom("Pacifico-Regular", size: 36))
+                
+                Text("Flutter Developer")
+                    .fontWeight(.medium)
+                    .foregroundColor(Color.white)
+                    .font(.system(size: 24))
+                
+                Divider()
+                
+                InfoView(name: "0868754872", imageName: "phone.fill")
+                
+                InfoView(name: "phantrungtin01@gmail", imageName: "envelope.fill")
+                    
+            }
         }
-        .padding()
     }
 }
 
